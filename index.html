@@ -1,75 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculdade Tech</title>
-    <link href="./style-aula.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculdade Tech - Laboratórios</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Faculdade Tech</h1>
-        <p>Construindo o Futuro com Tecnologia</p>
-    </header>
-    <nav>
-        <a href="cursos.html">Cursos</a>
-        <a href="#sobre">Sobre</a>
-        <a href="contato.html">Contato</a>
-    </nav>
+  <nav class="navbar">
     <div class="container">
-        <h2>Bem-vindo à Faculdade Tech</h2>
-        <p>Explore nossos cursos e invista no seu futuro!!!</p>
-        <a href="cursos.html" class="btn">Saiba Mais</a>
-
-        <table border="1">
-            <tr>
-                <th>Titulo</th>
-                <th>Observação</th>
-            </tr>
-            <tr>
-                <td>Aula CI</td>
-                <td>Tem video</td>
-            </tr>
-            <tr>
-                <td>Aula CD</td>
-                <td>Tem video também</td>
-            </tr>
-        </table>
-
+      <h1 class="logo">Faculdade Tech</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Laboratórios</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
     </div>
-    <footer>
-        <p>&copy; 2025 Faculdade Tech - Todos os direitos reservados.</p>
-    </footer>
+  </nav>
 
-    <script>
-        function testeNaoSeguro() {
-            fetch('https://example.com/api', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: 'Faculdade Tech',
-                    email: ''
-                })
-            }                
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.error('Erro:', error)));
-        }
+  <main class="main-content">
+    <section class="hero">
+      <h2>Cadastro e Agendamento de Laboratórios</h2>
+      <p>Controle de reservas — Trabalho Professor Fernando</p>
+      <button class="cta-btn" onclick="location.href='login.html'">Ver Laboratórios</button>
+    </section>
 
+    <h3 class="section-title">Laboratórios Disponíveis</h3>
+    <div class="scroll-container">
+      <div class="lab-card" style="background-image: url('imagens/lab09.png')" data-lab="redes">
+        <div class="overlay"></div>
+        <div class="card-text"><h3>Laboratório de Redes</h3></div>
+      </div>
 
-        function VariaveisNaoUsadas() {
-            const numUm = 1;
-            const NumDois = 2;
+      <div class="lab-card" style="background-image: url('imagens/lab07.png')" data-lab="programacao">
+        <div class="overlay"></div>
+        <div class="card-text"><h3>Laboratório de Programação</h3></div>
+      </div>
 
-            if (numUm > NumDois) {
-                console.log('numUm é maior que NumDois');
-            } else {
-                console.log('NumDois é maior que numUm');
-            }
-        }
-    </script>
+      <div class="lab-card" style="background-image: url('imagens/lab08.png')" data-lab="ia">
+        <div class="overlay"></div>
+        <div class="card-text"><h3>Laboratório de Inteligência Artificial</h3></div>
+      </div>
 
+      <div class="lab-card" style="background-image: url('imagens/lab10.png')" data-lab="hardware">
+        <div class="overlay"></div>
+        <div class="card-text"><h3>Laboratório de Hardware</h3></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal" id="labModal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-description"></p>
+      <img id="modal-image" src="" alt="Imagem do laboratório">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

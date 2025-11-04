@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Reserva - Faculdade Tech</title>
+  <link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+  <div class="cadastro-container">
+    <div class="form-side">
+      <h2>Realize sua Reserva</h2>
+      <p>Preencha os dados para agendar o laboratório.</p>
+      <form id="reserva-form">
+        <label>Nome completo</label>
+        <input type="text" id="nome-completo" placeholder="Seu nome">
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="seuemail@exemplo.com">
+
+        <label>Laboratório</label>
+        <select id="laboratorio-select">
+          <option value="">Selecione...</option>
+        </select>
+
+        <label>Data da Reserva</label>
+        <input type="date" id="data-reserva">
+
+        <label>Horário</label>
+        <input type="time" id="horario-reserva">
+
+        <button type="submit" class="btn">Agendar</button>
+      </form>
+      <p class="voltar"><a href="index.html">← Voltar</a></p>
+    </div>
+
+    <div class="image-side">
+      <img src="imagens/signup-bg.png" alt="Imagem lateral">
+    </div>
+  </div>
+
+  <script src="reservas.js"></script>
+</body>
+</html>

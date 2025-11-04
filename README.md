@@ -1,1 +1,18 @@
-# devops-ci
+# Sistema de Agendamento de Laboratórios – trabalho professor Fernando
+
+## 🧩 Descrição
+Sistema para controle de reservas de laboratórios, com cadastro, disponibilidade e capacidade.
+
+## 🚀 Tecnologias
+- TypeScript  
+- Node.js + Express  
+- Sequelize + PostgreSQL  
+- JWT (autenticação)  
+- Swagger (documentação da API)  
+- Docker e Docker Compose  
+- GitHub Actions (CD)
+
+## ⚙️ Execução local
+```bash
+docker-compose up -d
+npm run dev

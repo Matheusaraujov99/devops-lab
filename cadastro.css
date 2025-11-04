@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cadastro-container {
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+.form-side {
+  flex: 1;
+  padding: 3rem;
+}
+
+.form-side h2 {
+  color: #049DBF;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-side p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+input, select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 0.4rem;
+}
+
+.btn {
+  background: #049DBF;
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #03658C;
+}
+
+.voltar {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.voltar a {
+  color: #049DBF;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.image-side {
+  flex: 1;
+  background: #e0f7fa;
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
