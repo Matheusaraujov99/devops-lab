@@ -27,11 +27,15 @@ const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
 const modalImage = document.getElementById("modal-image");
 const closeBtn = document.querySelector(".close-btn");
+const reservarBtn = document.getElementById("btn-reservar");
+
+let selectedLab = null;
 
 cards.forEach(card => {
   card.addEventListener("click", () => {
     const labKey = card.dataset.lab;
     const lab = labData[labKey];
+    selectedLab = labKey;
     modalTitle.textContent = lab.title;
     modalDescription.textContent = lab.description;
     modalImage.src = lab.image;
@@ -41,3 +45,19 @@ cards.forEach(card => {
 
 closeBtn.addEventListener("click", () => modal.style.display = "none");
 window.addEventListener("click", e => { if (e.target === modal) modal.style.display = "none"; });
+
+reservarBtn.addEventListener("click", () => {
+  if (selectedLab) {
+    window.location.href = `cadastro.html?lab=${selectedLab}`;
+  }
+});
+
+document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute("href"));
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});

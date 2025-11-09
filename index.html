@@ -10,23 +10,25 @@
   <nav class="navbar">
     <div class="container">
       <h1 class="logo">Faculdade Tech</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Laboratórios</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-        <li><a href="login.html">Login</a></li>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#laboratorios" class="nav-link">Laboratórios</a></li>
+        <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
+        <li><a href="login.html" class="nav-link">Login</a></li>
       </ul>
     </div>
   </nav>
 
-  <main class="main-content">
+  <main class="main-content" id="home">
     <section class="hero">
       <h2>Cadastro e Agendamento de Laboratórios</h2>
       <p>Controle de reservas — Trabalho Professor Fernando</p>
-      <button class="cta-btn" onclick="location.href='login.html'">Ver Laboratórios</button>
+      <button class="cta-btn" onclick="document.querySelector('#laboratorios').scrollIntoView({ behavior: 'smooth' })">
+        Ver Laboratórios
+      </button>
     </section>
 
-    <h3 class="section-title">Laboratórios Disponíveis</h3>
+    <h3 class="section-title" id="laboratorios">Laboratórios Disponíveis</h3>
     <div class="scroll-container">
       <div class="lab-card" style="background-image: url('imagens/lab09.png')" data-lab="redes">
         <div class="overlay"></div>
@@ -56,6 +58,7 @@
       <h2 id="modal-title"></h2>
       <p id="modal-description"></p>
       <img id="modal-image" src="" alt="Imagem do laboratório">
+      <button id="btn-reservar" class="cta-btn">Reservar</button>
     </div>
   </div>
 

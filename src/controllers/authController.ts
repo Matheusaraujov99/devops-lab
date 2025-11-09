@@ -5,21 +5,18 @@ import User from "../models/User";
 
 const SECRET = process.env.JWT_SECRET || "segredo-turma-devops";
 
-// 🔹 Login com usuário real (ou fake, se não houver no banco)
 export const login = async (req: Request, res: Response) => {
   const { email, senha } = req.body;
 
   try {
-    // tenta buscar usuário no banco
+
     const user = await User.findOne({ where: { email } });
 
-    // se não existir no banco, define usuário fake
     const fakeUser = {
       email: "admin@faculdade.com",
       senha: bcrypt.hashSync("123456", 8),
     };
 
-    // garante que sempre exista um "usuário válido"
     const validUser = user
       ? {
           email: user.getDataValue("email"),
@@ -27,23 +24,20 @@ export const login = async (req: Request, res: Response) => {
         }
       : fakeUser;
 
-    // valida credenciais
     const senhaCorreta = bcrypt.compareSync(senha, validUser.senha);
     if (email !== validUser.email || !senhaCorreta) {
       return res.status(401).json({ message: "Credenciais inválidas" });
     }
 
-    // gera token JWT
     const token = jwt.sign({ email: validUser.email }, SECRET, { expiresIn: "1h" });
 
     res.json({ token });
   } catch (error) {
-    console.error("❌ Erro no login:", error);
+    console.error("Erro no login:", error);
     res.status(500).json({ message: "Erro ao realizar login", error });
   }
 };
 
-// 🔹 Registro de novos usuários
 export const register = async (req: Request, res: Response) => {
   const { nome, email, senha } = req.body;
 
@@ -60,7 +54,7 @@ export const register = async (req: Request, res: Response) => {
       },
     });
   } catch (error) {
-    console.error("❌ Erro ao registrar:", error);
+    console.error("Erro ao registrar:", error);
     res.status(500).json({ message: "Erro ao registrar usuário", error });
   }
 };

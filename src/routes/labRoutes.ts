@@ -11,7 +11,6 @@ import jwt from "jsonwebtoken";
 const router = Router();
 const SECRET = "segredo-turma-devops";
 
-// ✅ Middleware para verificar o token JWT
 function verificarToken(req: Request, res: Response, next: NextFunction) {
   const authHeader = req.headers["authorization"];
   if (!authHeader) return res.status(403).json({ message: "Token ausente" });
@@ -27,7 +26,6 @@ function verificarToken(req: Request, res: Response, next: NextFunction) {
   }
 }
 
-// ✅ Rotas protegidas
 router.get("/", verificarToken, getLabs);
 router.post("/", verificarToken, createLab);
 router.get("/:id", verificarToken, getLabById);

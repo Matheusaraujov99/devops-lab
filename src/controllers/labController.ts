@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import Lab from "../models/laboratorio";
 
-// ✅ Listar todos os laboratórios
 export const getLabs = async (req: Request, res: Response) => {
   try {
     const labs = await Lab.findAll();
@@ -11,7 +10,6 @@ export const getLabs = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Criar novo laboratório
 export const createLab = async (req: Request, res: Response) => {
   try {
     const { nome, capacidade, localizacao } = req.body;
@@ -22,7 +20,6 @@ export const createLab = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Buscar laboratório por ID
 export const getLabById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -34,7 +31,6 @@ export const getLabById = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Atualizar laboratório
 export const updateLab = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -50,7 +46,6 @@ export const updateLab = async (req: Request, res: Response) => {
   }
 };
 
-// ✅ Deletar laboratório
 export const deleteLab = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;

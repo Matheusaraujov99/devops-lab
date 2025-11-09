@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001'; // TROCAR PELA URL DA API NA NUVEM DEPOIS
+const API_URL = 'http://localhost:3001'; 
 let AUTH_TOKEN = localStorage.getItem('token');
 
 if (!AUTH_TOKEN) {
@@ -33,7 +33,6 @@ async function loadLaboratorioOptions() {
         alert("Não foi possível carregar a lista de laboratórios. Verifique a API e o token.");
     }
 }
-
 async function handleReservaSubmit(event) {
     event.preventDefault();
 
