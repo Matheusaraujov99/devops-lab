@@ -33,14 +33,14 @@ services:
       - pgdata:/var/lib/postgresql/data
     restart: always
 
-  frontend:
-    build: ./frontend  
-    container_name: devops_frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - api
-    restart: always
+    environment:
+  - NODE_ENV=production
+  - DB_HOST=db
+  - DB_PORT=5432
+  - DB_USER=postgres
+  - DB_PASSWORD=123456
+  - DB_NAME=devopsdb
+  - DB_SSL=false
 
 volumes:
   pgdata:
