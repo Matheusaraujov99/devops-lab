@@ -33,5 +33,14 @@ services:
       - pgdata:/var/lib/postgresql/data
     restart: always
 
+  frontend:
+    build: ./frontend  
+    container_name: devops_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    restart: always
+
 volumes:
   pgdata:
