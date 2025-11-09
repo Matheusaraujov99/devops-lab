@@ -1,8 +1,11 @@
 import { Sequelize, Options } from "sequelize";
+import dotenv from "dotenv";
+
+dotenv.config(); // 🔹 garante que o .env seja lido
 
 const useSSL = process.env.DB_SSL === "true";
 
-let connectionOptions: Options = {
+const connectionOptions: Options = {
   host: process.env.DB_HOST || "localhost",
   port: parseInt(process.env.DB_PORT || "5432", 10),
   dialect: "postgres",
@@ -11,7 +14,7 @@ let connectionOptions: Options = {
     ? {
         ssl: {
           require: true,
-          rejectUnauthorized: false,
+          rejectUnauthorized: false, // 🔹 obrigatório no Azure
         },
       }
     : {},
@@ -19,8 +22,8 @@ let connectionOptions: Options = {
 
 console.log(
   useSSL
-    ? `Conectando ao banco COM SSL em: ${process.env.DB_HOST}`
-    : `Conectando ao banco SEM SSL em: ${process.env.DB_HOST || "localhost"}`
+    ? `🔐 Conectando COM SSL ao banco em: ${process.env.DB_HOST}`
+    : `⚠️ Conectando SEM SSL ao banco em: ${process.env.DB_HOST || "localhost"}`
 );
 
 const sequelize = new Sequelize(
@@ -33,12 +36,12 @@ const sequelize = new Sequelize(
 export async function connectDB() {
   try {
     await sequelize.authenticate();
-    console.log("Conexão com o banco estabelecida com sucesso.");
+    console.log("✅ Conexão com o banco estabelecida com sucesso.");
 
     await sequelize.sync({ alter: true });
-    console.log("Schema sincronizado (tabelas verificadas/criadas).");
+    console.log("📦 Schema sincronizado (tabelas verificadas/criadas).");
   } catch (error) {
-    console.error("Erro ao conectar ou sincronizar o banco:", error);
+    console.error("❌ Erro ao conectar ou sincronizar o banco:", error);
   }
 }
 
