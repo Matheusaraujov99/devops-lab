@@ -1,3 +1,4 @@
+version: "3.9"
 
 services:
   api:
@@ -12,7 +13,7 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=123456
       - DB_NAME=devopsdb
-      - DB_SSL=false       
+      - DB_SSL=false
     depends_on:
       - db
     command: npm run dev
@@ -31,15 +32,6 @@ services:
       - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-    restart: always
-
-  frontend:
-    build: ./frontend
-    container_name: devops_frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - api
     restart: always
 
 volumes:
