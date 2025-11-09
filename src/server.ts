@@ -7,7 +7,6 @@ import authRoutes from "./routes/authRoutes";
 import setupSwagger from "./swagger";
 import * as path from "path";
 
-const __dirname = path.resolve();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
