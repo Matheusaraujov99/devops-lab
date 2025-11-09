@@ -11,9 +11,9 @@ services:
       - DB_HOST=db
       - DB_PORT=5432
       - DB_USER=postgres
-      - DB_PASSWORD=123456
+      - DB_PASSWORD=Novasenha@2025
       - DB_NAME=devopsdb
-      - DB_SSL=false
+      - DB_SSL=true
     depends_on:
       - db
     command: npm run dev
